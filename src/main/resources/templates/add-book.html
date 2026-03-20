@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::content}, 'Them Sach Moi')}">
+<th:block th:fragment="content">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title mb-4">Them Sach Moi</h2>
+                    <form th:action="@{/books/add}" method="post" th:object="${book}" class="row g-3">
+                        <div class="col-12">
+                            <label for="title" class="form-label">Tieu De</label>
+                            <input type="text" id="title" th:field="*{title}" class="form-control"
+                                   placeholder="Nhap tieu de sach" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="author" class="form-label">Tac Gia</label>
+                            <input type="text" id="author" th:field="*{author}" class="form-control"
+                                   placeholder="Nhap ten tac gia" required>
+                        </div>
+                        <div class="col-12 d-flex gap-2">
+                            <button type="submit" class="btn btn-success">Them</button>
+                            <a th:href="@{/books}" class="btn btn-secondary">Huy</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>
